@@ -1,7 +1,6 @@
 package ngodinhthang.apple.activity;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -29,8 +28,8 @@ import ngodinhthang.apple.utils.Utils;
 public class AsusActivity extends AppCompatActivity {
     Toolbar toolbar;
     RecyclerView recyclerView;
-    ApiApple apiApple;
     CompositeDisposable compositeDisposable = new CompositeDisposable();
+    ApiApple apiApple;
     int page = 1;
     int loai;
     AsusAdapter adapterAsus;
@@ -41,10 +40,17 @@ public class AsusActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_asus);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+
         apiApple = RetrofitClient.getInstance(Utils.BASE_URL).create(ApiApple.class);
         loai = getIntent().getIntExtra("loai", 1);
-        AnhXa();
-        ActionToolBar();
+
+        Anhxa();
+        ActionBarSize();
         getData();
     }
 
@@ -60,30 +66,26 @@ public class AsusActivity extends AppCompatActivity {
                            recyclerView.setAdapter(adapterAsus);
                        }
                    },
-                        throwable -> {
-                            Toast.makeText(getApplicationContext(), "Cannot connect with Server", Toast.LENGTH_LONG).show();
-                        }
+                   throwable -> {
+                       Toast.makeText(getApplicationContext(),"Cannot connect with Server", Toast.LENGTH_LONG).show();
+                   }
                 ));
     }
 
-    private void ActionToolBar() {
+    private void ActionBarSize() {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+
     }
 
-    private void AnhXa() {
+    private void Anhxa() {
         toolbar = findViewById(R.id.toolbar);
         recyclerView = findViewById(R.id.recycleview_asus);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
         sanPhamMoiList = new ArrayList<>();
+
     }
 
     @Override

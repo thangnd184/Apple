@@ -8,20 +8,21 @@
     tools:context=".activity.AsusActivity">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
-        app:title="Asus"
-        android:background="#F489AD"
+        app:title="Product"
+        android:background="#EF7BA2"
+        app:layout_constraintTop_toTopOf="parent"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        tools:ignore="MissingConstraints">
+        android:layout_height="?attr/actionBarSize">
 
     </androidx.appcompat.widget.Toolbar>
-<androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/recycleview_asus"
-    android:layout_marginTop="10dp"
-    android:layout_marginStart="5dp"
-    android:layout_marginEnd="5dp"
-    app:layout_constraintTop_toBottomOf="@+id/toolbar"
-    app:layout_constraintBottom_toBottomOf="parent"
-    android:layout_width="match_parent"
-    android:layout_height="0dp"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleview_asus"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
