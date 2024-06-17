@@ -17,23 +17,57 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <androidx.appcompat.widget.Toolbar
-                android:background="@color/white"
+                android:background="#03A9F4"
                 android:id="@+id/toolbarhome"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize">
-                <ImageView
+                <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginRight="20dp"
-                    android:id="@+id/imgviewHome"/>
+                    android:layout_height="?attr/actionBarSize">
+
+                    <ImageView
+                        android:id="@+id/imgviewHome"
+                        android:layout_width="310dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_image_24" />
+
+                    <ImageView
+                        android:id="@+id/imgsearch"
+                        android:layout_marginRight="15dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_search"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"/>
+                    <FrameLayout
+                        android:id="@+id/framegiohang"
+                        android:layout_marginRight="10dp"
+                        android:layout_gravity="right|center"
+                        android:layout_width="50dp"
+                        android:layout_height="?attr/actionBarSize">
+                        <com.nex3z.notificationbadge.NotificationBadge
+                            android:id="@+id/menu_sl"
+                            android:layout_gravity="top|right"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"/>
+                        <ImageView
+                            android:src="@drawable/ic_cart_24"
+                            android:layout_marginTop="15dp"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"/>
+                    </FrameLayout>
+
+                </LinearLayout>
+
+
 
             </androidx.appcompat.widget.Toolbar>
 
             <ViewFlipper
                 android:id="@+id/viewflipper"
                 android:layout_width="match_parent"
-                android:layout_height="250dp">
-            </ViewFlipper>
+                android:layout_height="250dp"></ViewFlipper>
 
             <LinearLayout
                 android:orientation="vertical"
@@ -43,7 +77,7 @@
                 <TextView
                     android:text="New Product"
                     android:textStyle="bold"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
                     android:textSize="20sp"
                     android:textColor="@android:color/holo_red_light"
@@ -51,7 +85,7 @@
                     android:layout_height="wrap_content"/>
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycleview"
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginLeft="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 

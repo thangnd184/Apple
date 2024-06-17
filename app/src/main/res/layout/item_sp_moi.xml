@@ -5,7 +5,7 @@
     android:layout_marginTop="10dp"
     android:layout_marginLeft="5dp"
     app:cardCornerRadius="4dp"
-    android:layout_width="190dp"
+    android:layout_width="210dp"
     android:layout_height="wrap_content">
     <FrameLayout
         android:layout_width="match_parent"
@@ -19,7 +19,7 @@
                 android:id="@+id/itemsp_image"
                 android:src="@drawable/ic_image_24"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"/>
+                android:layout_height="120dp"/>
             <TextView
                 android:id="@+id/itemsp_ten"
                 android:text="Asus"
